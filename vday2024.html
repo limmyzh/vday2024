@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Day</title>
+    <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Indie Flower', cursive;
+            background: url('https://img.freepik.com/premium-vector/cute-flowers-seamless-pattern-background_42349-734.jpg?w=1060');
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            text-align: center;
+            padding: 30px;
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+            border-radius: 10px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+        }
+        .main-text {
+            font-size: 24px;
+            margin-bottom: 30px;
+        }
+        .button {
+            padding: 15px 30px;
+            font-size: 18px;
+            margin: 0 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 30px;
+            background-color: #ffc107; /* Yellow color */
+            color: #fff;
+            transition: background-color 0.3s ease;
+        }
+        .button:hover {
+            background-color: #ffca28; /* Lighter shade of yellow on hover */
+        }
+        .valentine-img {
+            width: 200px;
+            height: auto;
+            margin-bottom: 30px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img id="valentine-image" src="https://media1.tenor.com/m/K_E6ORTmXMoAAAAC/milk-and-mocha-love.gif" alt="Valentine's Day" class="valentine-img">
+        <img id="valentine-image2" src="" class="valentine-img">
+        <p id="main-text" class="main-text">Dearest Softie, Will you be my valentine?</p>
+        <button id="yes-button" class="button" onclick="yesClicked()">Yes</button>
+        <button class="button" onclick="noClicked()">No</button>
+    </div>
+    
+    <script>
+        var noButtonClickCount = 0;
+
+        function yesClicked() {
+            document.getElementById("main-text").textContent = "YAYYYYYYYYYYYYYY! Congratulations, you've won the grand prize of spending Valentine's Day with me!";
+            document.getElementById("valentine-image").src = "https://media1.tenor.com/m/auwW9Vb5uK0AAAAC/happy-dance.gif";
+            document.getElementById("valentine-image2").src = "https://media1.tenor.com/m/E2_i2XDqoG4AAAAC/shakespaw.gif";
+            
+            // Reset the size of the main text
+            document.getElementById("main-text").style.fontSize = "24px";
+
+            // Reset the size of the "Yes" button
+            var yesButton = document.getElementById("yes-button");
+            yesButton.style.padding = "15px 30px";
+            yesButton.style.fontSize = "18px";
+
+            // Hide all buttons
+            var buttons = document.querySelectorAll(".button");
+            buttons.forEach(button => {
+                button.style.display = "none";
+            });
+        }
+        
+        function noClicked() {
+            noButtonClickCount++;
+            // Increase font size of the main text
+            var mainText = document.getElementById("main-text");
+            mainText.style.fontSize = `${24 + noButtonClickCount * 10}px`;
+
+            if (noButtonClickCount === 1) {
+                document.getElementById("main-text").textContent = "Are you sure?";
+                document.getElementById("valentine-image").src = "https://media1.tenor.com/m/ahioZMimaREAAAAd/greenhairbil-sus-dog.gif";
+            } else if (noButtonClickCount === 2) {
+                document.getElementById("main-text").textContent = "Are you really sure?";
+                document.getElementById("valentine-image").src = "https://media1.tenor.com/m/zmPhCg_Fy2oAAAAC/pedro-monkey-puppet.gif";
+            } else if (noButtonClickCount === 3) {
+                document.getElementById("main-text").textContent = "Are you really really sure?";
+                document.getElementById("valentine-image").src = "https://media.tenor.com/H2LU1jSnxOoAAAAM/love-you.gif";
+            } else if (noButtonClickCount === 4) {
+                document.getElementById("main-text").textContent = "What if I got you flowers?";
+                document.getElementById("valentine-image").src = "https://media1.tenor.com/m/al4a1pG1f8YAAAAC/jump-bear.gif";
+            } else if (noButtonClickCount === 5) {
+                document.getElementById("main-text").textContent = "What if i buy you a nice dinner?";
+                document.getElementById("valentine-image").src = "https://media1.tenor.com/m/kJuIS6N8nkgAAAAC/lunch-dinner.gif";
+            } else if (noButtonClickCount === 6) {
+                document.getElementById("main-text").textContent = "Are you absolutely positively 100% sure you don't want to be my valentine? Like, really really sure?";
+                document.getElementById("valentine-image").src = "https://media.tenor.com/RBa37_6ApVcAAAAi/cute-adorable.gif";
+            } else if (noButtonClickCount === 7) {
+                document.getElementById("main-text").textContent = "You know, saying 'no' to being my valentine is like saying 'no' to unlimited hugs and kisses?";
+                document.getElementById("valentine-image").src = "https://media1.tenor.com/m/_b5Z8_r8d34AAAAC/don%E2%80%99t-make-me-beg.gif";
+            } else {
+                document.getElementById("main-text").textContent = "Too bad, I'm not taking no for an answer!";
+                document.getElementById("valentine-image").src = "https://media.tenor.com/sq91_zcvgsIAAAAi/cat-tease.gif";
+            }
+            
+            // Increase the size of the "Yes" button
+            var yesButton = document.getElementById("yes-button");
+            yesButton.style.padding = `${15 + noButtonClickCount * 15}px ${30 + noButtonClickCount * 10}px`;
+            // Increase font size of the "Yes" button text
+            yesButton.style.fontSize = `${18 + noButtonClickCount * 10}px`;
+
+            
+        }
+    </script>
+</body>
+</html>
